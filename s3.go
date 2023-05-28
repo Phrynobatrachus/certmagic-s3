@@ -245,7 +245,7 @@ func (s3 S3) Stat(ctx context.Context, key string) (certmagic.KeyInfo, error) {
 		Key:        object.Key,
 		Modified:   object.LastModified,
 		Size:       object.Size,
-		IsTerminal: strings.HasSuffix(object.Key, "/"),
+		IsTerminal: !strings.HasSuffix(object.Key, "/"),
 	}, err
 }
 
